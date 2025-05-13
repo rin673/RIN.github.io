@@ -3,7 +3,10 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
+  background-image: url('your-image.png'); /* あなたの画像に置き換えてね */
+  background-size: cover; /* 背景画像を画面全体に拡大 */
+  background-position: center; /* 画像を中央に配置 */
+  background-repeat: no-repeat; /* 画像を繰り返さないようにする */
 }
 
 header {
