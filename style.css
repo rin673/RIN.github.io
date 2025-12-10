@@ -165,3 +165,16 @@ body, html {
     transform: translateY(-3px);
 }
 
+/* IdeaMarket用：知的なネイビー〜鮮やかなブルー */
+.ideamarket-card .card-img {
+    background: linear-gradient(135deg, #09203f 0%, #537895 100%);
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+/* Note用（もし使うなら）：やさしい緑 */
+.note-card .card-img {
+    background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
