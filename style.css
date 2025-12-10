@@ -1,54 +1,91 @@
-/* style.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('your-image.png'); /* あなたの画像に置き換えてね */
-  background-size: cover; /* 背景画像を画面全体に拡大 */
-  background-position: center; /* 画像を中央に配置 */
-  background-repeat: no-repeat; /* 画像を繰り返さないようにする */
+/* --- 全体の設定 --- */
+body, html {
+    margin: 0; padding: 0;
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #FDFDFD;
+    color: #555;
 }
 
-header {
-  background-color: #333;
-  padding: 10px;
+/* --- ヘッダー（自己紹介エリア） --- */
+.hero {
+    position: relative;
+    height: 80vh; /* 画面の8割を使う */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
+/* 背景のふわふわ（パステルBlob） */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.7;
+    z-index: -1;
+    animation: float 10s infinite alternate;
+}
+.blob-1 { width: 400px; height: 400px; background: #FFD1DC; top: -50px; left: -50px; }
+.blob-2 { width: 350px; height: 350px; background: #D4F1F4; bottom: -50px; right: -50px; animation-delay: -5s; }
+.blob-3 { width: 200px; height: 200px; background: #FFFACD; top: 40%; right: 20%; }
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 40px); }
 }
 
-nav ul li {
-  margin: 0 15px;
+/* テキストデザイン */
+.greeting { font-size: 1rem; color: #999; letter-spacing: 0.1em; text-transform: uppercase; }
+.name { font-size: 3.5rem; margin: 10px 0; color: #444; }
+.name span { color: #90ADC6; } /* アクセントカラー */
+.bio { line-height: 1.8; color: #777; margin-top: 20px; }
+
+/* --- 作品リストエリア --- */
+.works { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #444; }
+
+/* グリッドレイアウト（ここが重要！） */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動で列が変わる */
+    gap: 30px;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
+/* 作品カード */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    text-decoration: none; /* リンクの下線を消す */
+    color: inherit;
+    display: block;
+}
+.card:hover { transform: translateY(-5px); }
+
+.card-img {
+    height: 180px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-weight: bold;
 }
 
-main {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 50px;
-}
-
-.intro .text h1 {
-  font-size: 2.5rem;
-  color: #333;
-}
-
-.intro .text p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.intro .image img {
-  max-width: 100%;
-  height: auto;
+.card-body { padding: 20px; }
+.card-title { margin: 0 0 10px 0; font-size: 1.2rem; font-weight: bold; }
+.card-desc { font-size: 0.9rem; color: #888; margin: 0; line-height: 1.5; }
+.tag {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 10px;
 }
