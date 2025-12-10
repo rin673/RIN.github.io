@@ -178,3 +178,71 @@ body, html {
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
 }
+
+/* --- 旅行セクション専用デザイン --- */
+.travel-section {
+    background-color: #FFF9E6; /* 薄いクリーム色の背景 */
+    border-radius: 50px 50px 0 0;
+}
+
+/* ポラロイド風カード */
+.polaroid {
+    border-radius: 2px; /* 角をあえて四角くする */
+    padding: 15px 15px 20px 15px; /* 写真の周りに白い余白を作る */
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: rotate(-2deg); /* ちょっと左に傾ける */
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+/* 2枚目は右に傾ける（ランダム感を出す） */
+.polaroid:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+/* ホバーしたら真っ直ぐになって浮く */
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* 写真エリア */
+.photo-frame {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f0f0f0;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* 写真の縁取り */
+}
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* テキストエリア */
+.polaroid-body {
+    text-align: center; /* 中央揃えでメモっぽく */
+    padding: 0;
+}
+.spot-title {
+    font-family: 'Helvetica Neue', sans-serif; /* 手書き風フォントがあれば最高 */
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: #333;
+}
+.rating {
+    color: #FFB400; /* 星の色 */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.spot-desc {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left; /* 文章は左揃え */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
