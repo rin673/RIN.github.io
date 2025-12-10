@@ -73,41 +73,95 @@ body, html {
     gap: 30px;
 }
 
-/* 作品カード */
+/* --- 作品カード共通設定 --- */
 .card {
     background: white;
-    border-radius: 15px;
+    /* 角丸をさらに大きくして、ふわふわ感を出す */
+    border-radius: 35px;
+    /* パステルカラーの太い枠線を追加！ */
+    border: 4px solid #F0F4F8;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    text-decoration: none; /* リンクの下線を消す */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ぽよんと跳ねるバネのような動き */
+    text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
 }
-.card:hover { transform: translateY(-5px); }
 
+.card:hover {
+    top: -10px;
+    /* ホバー時に少し傾けて愛嬌を出す */
+    transform: rotate(2deg);
+    /* 影の色をピンクっぽくして可愛く */
+    box-shadow: 0 25px 45px rgba(255, 209, 220, 0.4);
+    /* 枠線の色も濃くする */
+    border-color: #FFD1DC;
+}
+
+/* 画像エリア（少し高さを調整） */
 .card-img {
-    height: 180px;
-    background-color: #eee;
+    height: 200px;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #aaa;
-    font-weight: bold;
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    /* 文字の影を強くしてぷっくりさせる */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.card-body { padding: 20px; }
-.card-title { margin: 0 0 10px 0; font-size: 1.2rem; font-weight: bold; }
-.card-desc { font-size: 0.9rem; color: #888; margin: 0; line-height: 1.5; }
+/* 各カードごとのグラデーションを少し柔らかく調整 */
+.review-card .card-img {
+    background: linear-gradient(45deg, #FFC3CF, #C3F0F4);
+}
+.bus-card .card-img {
+    background: linear-gradient(135deg, #98E6E3 0%, #FFC3D6 100%);
+}
+.coming-soon .card-img {
+    background-color: #F5F7FA;
+    color: #BBB;
+    text-shadow: none;
+    border-bottom: 4px solid #EEE;
+}
+
+/* カードの中身 */
+.card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.card-title { margin: 0 0 15px 0; font-size: 1.4rem; font-weight: 700; color: #444; }
+.card-desc { font-size: 0.95rem; color: #888; margin: 0 0 25px 0; line-height: 1.7; flex-grow: 1; }
+
+/* ★タグをキャンディのように可愛くする */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 .tag {
     display: inline-block;
-    background: #f0f0f0;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: #666;
-    margin-top: 10px;
+    /* 背景をパステルカラーに */
+    background: #E0F7FA;
+    padding: 8px 16px;
+    /* 完全に丸くする */
+    border-radius: 50px;
+    font-size: 0.85rem;
+    /* 文字色を少し濃く */
+    color: #00BCD4;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0,188,212,0.1);
+    transition: transform 0.3s;
+}
+/* タグごとに色を変えてカラフルにする魔法 */
+.tag:nth-child(1) { background: #E1F5FE; color: #03A9F4; box-shadow: 0 4px 6px rgba(3,169,244,0.15); }
+.tag:nth-child(2) { background: #FCE4EC; color: #E91E63; box-shadow: 0 4px 6px rgba(233,30,99,0.15); }
+.tag:nth-child(3) { background: #FFF3E0; color: #FF9800; box-shadow: 0 4px 6px rgba(255,152,0,0.15); }
+
+.card:hover .tag {
+    /* ホバー時にタグも少し跳ねさせる */
+    transform: translateY(-3px);
 }
 
