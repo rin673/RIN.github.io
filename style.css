@@ -17,6 +17,27 @@ body, html {
     overflow: hidden;
 }
 
+/* --- プロフィールアイコンのデザイン --- */
+.profile-icon {
+    width: 180px;  /* 好きな大きさに変えてね */
+    height: 180px;
+    object-fit: cover; /* 写真が伸び縮みせずきれいに収まる魔法 */
+    border-radius: 50%; /* 完璧な丸にする */
+    border: 5px solid white; /* 白いふちどり */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* ふわっとした影 */
+    margin-bottom: 20px; /* 下の文字との隙間 */
+    
+    /* ぽよんと動くアニメーション */
+    animation: bounce-in 1s ease-out;
+}
+
+/* 登場するときのアニメーション */
+@keyframes bounce-in {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 /* 背景のふわふわ（パステルBlob） */
 .blob {
     position: absolute;
@@ -89,3 +110,4 @@ body, html {
     color: #666;
     margin-top: 10px;
 }
+
